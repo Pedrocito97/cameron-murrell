@@ -49,20 +49,21 @@
   /* Base Radius */
   --radius: 0.75rem;
 
-  /* === STREET CEO COLOR PALETTE === */
-  /* Primary: Black */
-  --background: #000000;
-  --foreground: #ffffff;
+  /* === CAMERON MURRELL - CINEMATIC COLOR PALETTE === */
+  /* Primary: Rich Black (not pure black) */
+  --background: #0a0a0a;
+  --foreground: #fafafa;
 
   /* Cards & Elevated Surfaces */
-  --card: #1a1a1a;
-  --card-foreground: #ffffff;
-  --popover: #1a1a1a;
-  --popover-foreground: #ffffff;
+  --card: #141414;
+  --card-foreground: #fafafa;
+  --popover: #141414;
+  --popover-foreground: #fafafa;
 
-  /* Brand Colors */
-  --charcoal: #1a1a1a;
-  --street-grey: #2c2c2c;
+  /* Brand Colors (Elevated) */
+  --charcoal: #141414;
+  --street-grey: #1f1f1f;
+  --accent-blue: #1a1a2e;
 
   /* Gold Accent (The Street CEO Signature) */
   --gold: #d4af37;

@@ -15,15 +15,29 @@ import {
 } from "lucide-react";
 import { MagneticButton } from "@/components/shared/magnetic-button";
 import { GlassCard } from "@/components/shared/glass-card";
-import { FloatingOrb } from "@/components/shared/floating-orb";
-import { SectionHeading } from "@/components/shared/section-heading";
 import { EmailCaptureForm } from "@/components/shared/email-capture-form";
-import { staggerContainer, staggerItem } from "@/lib/animations";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 const playbookBenefits = [
   "Mindset shifts that took me from nothing to 7 figures",
   "How to lead without credentials or degrees",
-  "The 3 mistakes that cost me everything (and how to avoid them)",
+  "The 3 mistakes that cost me everything",
   "My daily discipline routine that drives results",
   "Street-smart strategies for any industry",
 ];
@@ -31,90 +45,94 @@ const playbookBenefits = [
 const innerCircleBenefits = [
   {
     icon: Mail,
-    title: "Weekly Raw Fire",
-    description: "Street wisdom delivered to your inbox every week. Actionable, no fluff.",
+    title: "Weekly Insights",
+    description: "Actionable wisdom delivered to your inbox every week.",
   },
   {
     icon: Zap,
     title: "First Access",
-    description: "Be the first to know about new content, programs, and opportunities.",
+    description: "Be first to know about new content and opportunities.",
   },
   {
     icon: Lock,
     title: "Exclusive Strategies",
-    description: "Insights and tactics I only share with the Inner Circle.",
+    description: "Insights I only share with the Inner Circle.",
   },
   {
     icon: Users,
     title: "Community Invites",
-    description: "Get invited to exclusive events, workshops, and community calls.",
+    description: "Exclusive events, workshops, and community calls.",
   },
   {
     icon: Gift,
     title: "Member-Only Offers",
-    description: "Special pricing and early access to new programs and coaching spots.",
+    description: "Special pricing and early access to programs.",
   },
   {
     icon: Sparkles,
     title: "Behind The Scenes",
-    description: "Follow the journey as I rebuild publicly. The wins, the losses, the lessons.",
+    description: "Follow the rebuild journey. Wins, losses, lessons.",
   },
 ];
 
 const testimonials = [
   {
-    quote: "Cam's emails are the only ones I actually open. No BS, just straight value that I can apply immediately.",
+    quote:
+      "Cameron's emails are the only ones I actually open. No BS, just straight value.",
     author: "Marcus T.",
-    role: "Sales Manager, Manchester",
+    role: "Sales Manager",
   },
   {
-    quote: "The Playbook alone changed how I approach my business. The weekly emails keep me accountable.",
+    quote:
+      "The Playbook changed how I approach my business. The weekly emails keep me accountable.",
     author: "Sophie R.",
-    role: "Entrepreneur, London",
+    role: "Entrepreneur",
   },
   {
-    quote: "Finally someone who tells it how it is. The Inner Circle is where the real ones hang out.",
+    quote:
+      "Finally someone who tells it how it is. The Inner Circle is where the real ones hang out.",
     author: "David K.",
-    role: "Team Leader, Dublin",
+    role: "Team Leader",
   },
 ];
 
 export function InnerCircleContent() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-black">
-        <FloatingOrb className="top-1/4 -right-32" size="xl" delay={0} />
-        <FloatingOrb className="bottom-1/4 -left-32" size="lg" delay={1} />
+      {/* Cinematic Hero */}
+      <section className="relative py-32 lg:py-40 overflow-hidden bg-[var(--background)]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--gold)_0%,_transparent_50%)] opacity-[0.08]" />
 
         <div className="container-wide relative">
           <motion.div
             initial="hidden"
             animate="visible"
-            variants={staggerContainer}
+            variants={containerVariants}
             className="max-w-3xl mx-auto text-center"
           >
             <motion.span
-              variants={staggerItem}
-              className="inline-block text-[var(--gold)] text-sm font-semibold uppercase tracking-widest mb-4"
+              variants={itemVariants}
+              className="inline-block text-[var(--gold)] text-sm font-semibold uppercase tracking-widest mb-6"
             >
               Free Access
             </motion.span>
+
             <motion.h1
-              variants={staggerItem}
-              className="font-display text-5xl lg:text-6xl font-bold text-white mb-6"
+              variants={itemVariants}
+              className="font-display text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6"
             >
-              Join The Street CEO{" "}
-              <span className="text-gold-gradient">Inner Circle</span>
+              Join The <span className="text-gold-gradient">Inner Circle</span>
             </motion.h1>
+
             <motion.p
-              variants={staggerItem}
-              className="text-xl text-white/70 mb-8"
+              variants={itemVariants}
+              className="text-xl lg:text-2xl text-white/70 mb-10"
             >
               Get exclusive strategies, behind-the-scenes access, and the free
-              Playbook that's helped thousands transform their results.
+              Playbook that&apos;s helped thousands transform.
             </motion.p>
-            <motion.div variants={staggerItem}>
+
+            <motion.div variants={itemVariants}>
               <GlassCard className="max-w-md mx-auto">
                 <EmailCaptureForm
                   ctaText="Send Me The Playbook"
@@ -136,7 +154,7 @@ export function InnerCircleContent() {
       </section>
 
       {/* Social Proof Bar */}
-      <section className="py-8 bg-[var(--charcoal)] border-y border-white/5">
+      <section className="py-12 bg-[var(--charcoal)] border-y border-white/5">
         <div className="container-wide">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-center">
             <div>
@@ -150,7 +168,7 @@ export function InnerCircleContent() {
               <span className="font-display text-3xl font-bold text-[var(--gold)]">
                 2,500+
               </span>
-              <span className="text-white/60 text-sm ml-2">Playbook Downloads</span>
+              <span className="text-white/60 text-sm ml-2">Downloads</span>
             </div>
             <div className="hidden sm:block w-px h-8 bg-white/10" />
             <div className="flex items-center gap-1">
@@ -160,14 +178,14 @@ export function InnerCircleContent() {
                   className="w-4 h-4 fill-[var(--gold)] text-[var(--gold)]"
                 />
               ))}
-              <span className="text-white/60 text-sm ml-2">Rated 4.9/5</span>
+              <span className="text-white/60 text-sm ml-2">4.9/5</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Playbook Section */}
-      <section className="section-padding bg-black">
+      <section className="section-padding bg-[var(--background)]">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -179,12 +197,11 @@ export function InnerCircleContent() {
                 Your Free Gift
               </span>
               <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-6">
-                The Street CEO{" "}
-                <span className="text-gold-gradient">Playbook</span>
+                The <span className="text-gold-gradient">Playbook</span>
               </h2>
               <p className="text-lg text-white/70 mb-8">
                 10 lessons packed with the exact strategies, mindsets, and
-                frameworks I've used to build, lose, and rebuild. No theory -
+                frameworks I&apos;ve used to build, lose, and rebuild. No theory -
                 just what works.
               </p>
 
@@ -222,7 +239,6 @@ export function InnerCircleContent() {
               className="relative"
             >
               <div className="relative mx-auto max-w-sm">
-                {/* Main book */}
                 <div className="relative z-10 bg-gradient-to-br from-[var(--charcoal)] to-black rounded-2xl p-8 border border-white/10 shadow-2xl">
                   <div className="aspect-[3/4] flex flex-col justify-between">
                     <div>
@@ -230,7 +246,7 @@ export function InnerCircleContent() {
                         Free Download
                       </span>
                       <h3 className="font-display text-3xl font-bold text-white mt-2 mb-4">
-                        THE STREET CEO
+                        CAMERON MURRELL
                         <br />
                         <span className="text-gold-gradient">PLAYBOOK</span>
                       </h3>
@@ -248,12 +264,13 @@ export function InnerCircleContent() {
                         <p className="text-white font-semibold text-sm">
                           Cameron Murrell
                         </p>
-                        <p className="text-white/40 text-xs">The Street CEO</p>
+                        <p className="text-white/40 text-xs">
+                          Coach & Entrepreneur
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
-                {/* Shadow layers */}
                 <div className="absolute top-4 left-4 right-4 bottom-0 bg-[var(--gold)]/5 rounded-2xl -z-10" />
                 <div className="absolute top-8 left-8 right-8 bottom-0 bg-[var(--gold)]/3 rounded-2xl -z-20" />
               </div>
@@ -265,22 +282,30 @@ export function InnerCircleContent() {
       {/* What You Get */}
       <section className="section-padding bg-[var(--charcoal)]">
         <div className="container-wide">
-          <SectionHeading
-            label="Inside The Circle"
-            title="What You Get"
-            description="More than just emails. A community of action-takers getting real results."
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="inline-block text-[var(--gold)] text-sm font-semibold uppercase tracking-widest mb-4">
+              Inside The Circle
+            </span>
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-white">
+              What You <span className="text-gold-gradient">Get</span>
+            </h2>
+          </motion.div>
 
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={staggerContainer}
+            variants={containerVariants}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {innerCircleBenefits.map((benefit, index) => (
-              <motion.div key={index} variants={staggerItem}>
-                <GlassCard className="h-full" delay={index * 0.1}>
+              <motion.div key={index} variants={itemVariants}>
+                <GlassCard className="h-full">
                   <div className="w-12 h-12 rounded-xl bg-[var(--gold)]/10 border border-[var(--gold)]/20 flex items-center justify-center mb-4">
                     <benefit.icon className="w-6 h-6 text-[var(--gold)]" />
                   </div>
@@ -296,23 +321,32 @@ export function InnerCircleContent() {
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-black">
+      <section className="section-padding bg-[var(--background)]">
         <div className="container-wide">
-          <SectionHeading
-            label="What Members Say"
-            title="From The Inner Circle"
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="inline-block text-[var(--gold)] text-sm font-semibold uppercase tracking-widest mb-4">
+              What Members Say
+            </span>
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-white">
+              From The <span className="text-gold-gradient">Circle</span>
+            </h2>
+          </motion.div>
 
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={staggerContainer}
+            variants={containerVariants}
             className="grid md:grid-cols-3 gap-6"
           >
             {testimonials.map((testimonial, index) => (
-              <motion.div key={index} variants={staggerItem}>
-                <GlassCard className="h-full" delay={index * 0.1}>
+              <motion.div key={index} variants={itemVariants}>
+                <GlassCard className="h-full">
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star
@@ -355,7 +389,7 @@ export function InnerCircleContent() {
               </h2>
               <p className="text-lg text-white/60 mb-8">
                 Your transformation starts with a single step. Drop your email and
-                get instant access to the Street CEO Playbook plus weekly insights.
+                get instant access.
               </p>
             </motion.div>
 

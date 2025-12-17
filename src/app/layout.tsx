@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, clashDisplay } from "@/lib/fonts";
+import { LenisProvider } from "@/components/providers/lenis-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -57,7 +58,7 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${clashDisplay.variable} antialiased`}
       >
-        {children}
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );
