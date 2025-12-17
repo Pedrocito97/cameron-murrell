@@ -11,7 +11,7 @@ interface MagneticButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   variant?: "primary" | "secondary" | "outline";
-  size?: "default" | "lg" | "xl";
+  size?: "sm" | "default" | "lg" | "xl";
 }
 
 export function MagneticButton({
@@ -45,6 +45,7 @@ export function MagneticButton({
   };
 
   const sizes = {
+    sm: "px-4 py-2 text-xs",
     default: "px-6 py-3 text-sm",
     lg: "px-8 py-4 text-base",
     xl: "px-10 py-5 text-lg",
